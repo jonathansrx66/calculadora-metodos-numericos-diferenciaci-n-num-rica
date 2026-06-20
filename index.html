@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Interactiva de Métodos Numéricos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1>Calculadora Dinámica: Métodos Numéricos</h1>
+            <p>Unidad V: Integración y Diferenciación Numérica</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <section class="card">
+            <div class="card-header">
+                <span class="badge bg-blue">Parte 1</span>
+                <h2>Diferenciación Numérica Personalizable</h2>
+            </div>
+            
+            <p class="section-description">
+                Modifica los datos de la tabla (**Valor 1** y **Valor 2**). Luego, define el punto de estudio que deseas evaluar y presiona el botón para procesar las diferencias.
+            </p>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Punto</th>
+                            <th>Valor 1</th>
+                            <th>Valor 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Anterior (x - h)</strong></td>
+                            <td><input type="number" id="t_ant" value="4" step="any"></td>
+                            <td><input type="number" id="ram_ant" value="10" step="any"></td>
+                        </tr>
+                        <tr class="row-active">
+                            <td><strong>Estudio (x)</strong></td>
+                            <td><input type="number" id="t_est" value="5" step="any"></td>
+                            <td><input type="number" id="ram_est" value="16" step="any"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Siguiente (x + h)</strong></td>
+                            <td><input type="number" id="t_sig" value="6" step="any"></td>
+                            <td><input type="number" id="ram_sig" value="22" step="any"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="control-panel">
+                <div class="form-group-inline">
+                    <label for="eval_t">Evaluar en Valor 1 =</label>
+                    <input type="number" id="eval_t" value="5" step="any">
+                </div>
+                <button id="btnCalcularDiferenciacion" class="btn btn-blue">Calcular Diferenciación</button>
+            </div>
+
+            <div id="diferenciacionResult" class="steps-container" style="display: none;">
+                </div>
+        </section>
+
+        <section class="card">
+            <div class="card-header">
+                <span class="badge bg-indigo">Parte 2</span>
+                <h2>Integración Numérica (Cuadratura de Gauss de 2 Puntos)</h2>
+            </div>
+
+            <p class="section-description">
+                Selecciona la función predefinida o modifica los coeficientes de la estructura polinomial $Ax^2 + Bx + C$ para calcular su integral en el intervalo $[-1, 1]$.
+            </p>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="integralSelect">Función Base:</label>
+                    <select id="integralSelect">
+                        <option value="a">a) x² + 1</option>
+                        <option value="b">b) 3x² + 2</option>
+                        <option value="c">c) 2x² + 4x + 1</option>
+                        <option value="custom">Personalizada (Ax² + Bx + C)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Coeficiente A (x²):</label>
+                    <input type="number" id="coefA" value="1" step="any">
+                </div>
+                <div class="form-group">
+                    <label>Coeficiente B (x):</label>
+                    <input type="number" id="coefB" value="0" step="any">
+                </div>
+                <div class="form-group">
+                    <label>Coeficiente C (cte):</label>
+                    <input type="number" id="coefC" value="1" step="any">
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <button id="btnCalcularGauss" class="btn btn-indigo">Calcular Integral de Gauss</button>
+            </div>
+
+            <div id="gaussResult" class="dynamic-container" style="display: none;">
+                </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        Métodos Numéricos &copy; 2026 - Ejercicios paso a paso interactivos
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
